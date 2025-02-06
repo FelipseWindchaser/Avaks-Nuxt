@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("../vendors/fonts/DM_Sans/DMSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../vendors/fonts/Montserrat/Montserrat-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../vendors/fonts/Montserrat/Montserrat-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../vendors/fonts/Montserrat/Montserrat-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../vendors/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.main {
+  font-family: "Montserrat";
+}
+.scroll-off {
+  overflow-y: hidden;
+}
+/* body {
+  margin: 0;
+} */
+/* .main > :not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  font-family: "Noto Sans";
+
+ 
+} */
+
+/* .main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+} */
+
+/* .orange-button {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 13px 47px;
+  background-color: #ff6122;
+  border: none;
+  border-radius: 16px;
+  text-transform: uppercase;
+}
+.blue-button {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 13px 47px;
+  background: #64CDFF;
+  border: none;
+  border-radius: 16px;
+  text-transform: uppercase;
+}
+.button-content {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.button-text {
+  margin: 0;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 140%;
+}
+.bg_blue {
+  background-color: #eaf2fa;
+}
+.hidden {
+  display: none;
+}
+.scroll-off {
+  overflow-y: hidden;
+} */
+/* first page */
