@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer__container">
-      <a class="footer__logo">
+      <a href="#" class="footer__logo">
         <img
           class="footer__image"
           src="../../static/img/homepage/logo_footer.svg"
@@ -30,7 +30,9 @@
           Гражданского кодекса РФ.
         </p>
       </div>
-      <a class="footer__link">Политика конфиденциальности</a>
+      <div class="footer__link-container">
+        <a class="footer__link">Политика конфиденциальности</a>
+      </div>
     </div>
   </footer>
 </template>
@@ -47,6 +49,7 @@
 }
 .footer__logo {
   cursor: pointer;
+  max-width: min-content;
 }
 .footer__logo:hover {
   opacity: 0.7;
@@ -72,6 +75,7 @@
   padding-top: 35px;
   border-top: 1px solid rgba(100, 100, 100, 0.2);
   justify-content: space-between;
+  gap: 100px;
 }
 .footer__text-container {
   display: flex;
@@ -98,8 +102,85 @@
   line-height: 20px;
   cursor: pointer;
   opacity: 0.6;
+  max-width: min-content;
+  text-wrap: nowrap;
 }
 .footer__link:hover {
   opacity: 0.4;
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .footer__text-container {
+    max-width: 659px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .footer__text-container {
+    max-width: 500px;
+  }
+  .footer {
+    background-color: #000c2a;
+    padding: 80px 60px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer {
+    background-color: #000c2a;
+    padding: 80px 60px 195px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .footer__wrapper {
+    flex-direction: column;
+    padding-top: 24px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+    gap: 24px;
+  }
+  .footer__link-container {
+    padding-top: 24px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+  }
+}
+@media (min-width: 675px) and (max-width: 767px) {
+  .footer {
+    background-color: #000c2a;
+    padding: 80px 60px 195px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .footer__wrapper {
+    flex-direction: column;
+    padding-top: 24px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+    gap: 24px;
+  }
+  .footer__link-container {
+    padding-top: 24px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+  }
+}
+@media (min-width: 320px) and (max-width: 674px) {
+  .footer {
+    background-color: #000c2a;
+    padding: 60px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .footer__wrapper {
+    flex-direction: column;
+    padding-top: 24px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+    gap: 24px;
+  }
+  .footer__link-container {
+    padding-top: 24px;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+  }
 }
 </style>

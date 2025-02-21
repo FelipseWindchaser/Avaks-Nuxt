@@ -39,12 +39,13 @@ defineProps<{
   justify-content: center;
   align-items: flex-start;
   padding: 0;
+  /* max-width: 925px; */
   width: 100%;
   cursor: pointer;
 }
 .accordion_card-content {
   align-items: flex-start;
-  max-width: 1000px;
+  /* max-width: 925px; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -52,13 +53,17 @@ defineProps<{
 }
 .rotated-icon {
   transform: rotate(180deg);
+  padding: 0 10px 0 0 !important;
 }
-
+.accordion_card-icon {
+  padding-left: 10px;
+}
 .accordion_card_text-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  /* max-width: 925px; */
   width: 100%;
   padding: 24px 32px;
   border: 1px solid #f3f3f3;
@@ -83,9 +88,32 @@ defineProps<{
   cursor: text;
   padding: 24px 32px 24px;
   background: #f7f9fc;
+  max-width: 925px;
   width: 100%;
 }
 .hidden-answer {
   display: none;
 }
+@media (min-width: 320px) and (max-width: 1023px) {
+  .accordion_card-question {
+    font-size: 15px;
+  }
+  .accordion_card_text-container {
+    padding: 16px 20px;
+  }
+}
+/* @media (min-width: 375px) and (max-width: 767px) {
+  .accordion_card-question {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 374px) {
+  .accordion_card-question {
+    font-size: 15px;
+  }
+  .accordion_card_text-container {
+    padding: 16px 20px;
+  }
+} */
 </style>

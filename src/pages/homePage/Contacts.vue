@@ -186,10 +186,103 @@ defineProps<{}>();
   letter-spacing: 0.03px;
   text-decoration: none;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .contacts {
+    padding: 80px 60px;
+  }
 }
-@media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contacts {
+    padding: 80px 60px;
+  }
+  .contacts__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contacts__card {
+    flex-direction: row;
+    gap: 35px;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+  .contacts__card-container {
+    gap: 8px;
+  }
+}
+@media (min-width: 675px) and (max-width: 767px) {
+  .contacts {
+    padding: 80px 60px;
+  }
+  .contacts__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contacts__card {
+    flex-direction: row;
+    gap: 35px;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+  .contacts__card-container {
+    gap: 8px;
+  }
+  .contacts__card-icon {
+    width: 47px;
+    height: 47px;
+  }
+}
+@media (min-width: 375px) and (max-width: 674px) {
+  .contacts {
+    padding: 60px 20px;
+  }
+  .contacts__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .contacts__card {
+    flex-direction: row;
+    gap: 35px;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+  .contacts__card-container {
+    gap: 8px;
+  }
+  .contacts__card-icon {
+    display: none;
+  }
 }
 @media (min-width: 320px) and (max-width: 374px) {
+  .contacts {
+    padding: 60px 20px;
+  }
+  .contacts__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .contacts__card {
+    flex-direction: row;
+    gap: 35px;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+  .contacts__card-container {
+    gap: 8px;
+  }
+  .contacts__title {
+    font-size: 36px;
+  }
+
+  .contacts__card-icon {
+    display: none;
+  }
 }
 </style>

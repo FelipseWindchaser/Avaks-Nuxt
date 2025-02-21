@@ -86,10 +86,170 @@ defineProps<{}>();
   pointer-events: none;
   z-index: 0;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .vacancies {
+    overflow: hidden;
+    padding: 80px 60px;
+    align-items: flex-start;
+  }
+  .vacancies__image {
+    top: 30%;
+  }
+  .vacancies__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    z-index: 1;
+  }
+  .vacancies__icon-container {
+    padding: 0;
+    border: none;
+  }
+  .vacancies__link-container {
+    gap: 20px;
+  }
+  .vacancies__title {
+    font-size: 28px;
+    max-width: 315px;
+  }
 }
-@media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .vacancies {
+    overflow: hidden;
+    padding: 80px 60px;
+    align-items: flex-start;
+  }
+  .vacancies__image {
+    top: 30%;
+  }
+  .vacancies__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    z-index: 1;
+  }
+  .vacancies__icon-container {
+    padding: 0;
+    border: none;
+  }
+  .vacancies__link-container {
+    gap: 20px;
+  }
+  .vacancies__title {
+    font-size: 28px;
+    max-width: 315px;
+  }
+}
+@media (min-width: 560px) and (max-width: 767px) {
+  .vacancies {
+    overflow: hidden;
+    padding: 60px 20px;
+    align-items: flex-start;
+  }
+  .vacancies__image {
+    right: -30%;
+    top: 30%;
+  }
+  .vacancies__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    z-index: 1;
+  }
+  .vacancies__icon-container {
+    padding: 0;
+    border: none;
+  }
+  .vacancies__link-container {
+    gap: 20px;
+  }
+  .vacancies__title {
+    font-size: 28px;
+    max-width: 315px;
+  }
+}
+@media (min-width: 440px) and (max-width: 559px) {
+  .vacancies {
+    overflow: hidden;
+    padding: 60px 20px;
+    align-items: flex-start;
+  }
+  .vacancies__image {
+    right: -40%;
+    top: 40%;
+  }
+  .vacancies__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    z-index: 1;
+  }
+  .vacancies__icon-container {
+    padding: 0;
+    border: none;
+  }
+  .vacancies__link-container {
+    gap: 20px;
+  }
+  .vacancies__title {
+    font-size: 28px;
+    max-width: 315px;
+  }
+}
+@media (min-width: 375px) and (max-width: 439px) {
+  .vacancies {
+    overflow: hidden;
+    padding: 60px 20px;
+    align-items: flex-start;
+  }
+  .vacancies__image {
+    right: -70%;
+    top: 35%;
+  }
+  .vacancies__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    z-index: 1;
+  }
+  .vacancies__icon-container {
+    padding: 0;
+    border: none;
+  }
+  .vacancies__link-container {
+    gap: 20px;
+  }
+  .vacancies__title {
+    font-size: 28px;
+    max-width: 315px;
+  }
 }
 @media (min-width: 320px) and (max-width: 374px) {
+  .vacancies {
+    overflow: hidden;
+    padding: 60px 20px;
+    align-items: flex-start;
+  }
+  .vacancies__image {
+    right: -80%;
+    top: 40%;
+  }
+  .vacancies__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    z-index: 1;
+  }
+  .vacancies__icon-container {
+    padding: 0;
+    border: none;
+  }
+  .vacancies__link-container {
+    gap: 20px;
+  }
+  .vacancies__title {
+    font-size: 28px;
+    max-width: 315px;
+  }
 }
 </style>

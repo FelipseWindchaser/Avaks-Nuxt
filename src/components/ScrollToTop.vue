@@ -1,22 +1,32 @@
 <template>
   <Transition name="fade">
-    <button v-show="isVisible" @click="scrollToTop" class="scroll-to-top">
+    <a
+      v-show="isVisible"
+      @click.prevent="scrollToTop"
+      class="scroll-to-top-btn"
+    >
       <img src="../../static/img/homepage/icons/arrow-up.svg" />
-    </button>
+    </a>
   </Transition>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import { ref, onMounted, onUnmounted } from "vue";
+const router = useRouter();
 
 const isVisible = ref(false);
 
 const handleScroll = () => {
-  isVisible.value = window.scrollY > 200; // Show button after scrolling 200px
+  isVisible.value = window.scrollY > 200; // scroll after 200
 };
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+  setTimeout(() => {
+    router.push("");
+  }, 1000);
+  //adjust the value on content growth
 };
 
 onMounted(() => {
@@ -29,8 +39,9 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.scroll-to-top {
+.scroll-to-top-btn {
   position: fixed;
+  z-index: 9;
   bottom: 20px;
   right: 20px;
   width: 50px;
@@ -48,7 +59,7 @@ onUnmounted(() => {
   transition: opacity 0.3s ease-in-out;
 }
 
-.scroll-to-top:hover {
+.scroll-to-top-btn:hover {
   background: #325cc8;
   opacity: 0.7;
 }

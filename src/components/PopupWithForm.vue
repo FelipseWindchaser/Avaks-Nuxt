@@ -32,6 +32,10 @@
       <div v-else-if="contact" class="popup_content">
         <PopupForm :contact="contact" />
       </div>
+      <div v-else-if="cards" class="popup_card-content">
+        <h3 class="popup_title">{{ popupTitle }}</h3>
+        <p class="popup_text">{{ popupText }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -42,6 +46,9 @@ defineProps<{
   closePopup: () => void;
   contact?: boolean;
   request?: boolean;
+  cards?: boolean;
+  popupTitle: string;
+  popupText: string;
 }>();
 </script>
 
@@ -69,23 +76,28 @@ defineProps<{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 650px;
-  width: 100%;
   height: auto;
   border-radius: 24px;
   background: var(--white, #fff);
   z-index: 9999;
   position: relative;
-  padding: 40px 0;
+  padding: 60px;
 }
 
 .popup_content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 426px;
+  max-width: 500px;
 }
-
+.popup_card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 740px;
+  height: 500px;
+  padding: 40px;
+}
 .active {
   display: flex;
 }
@@ -97,6 +109,27 @@ defineProps<{
 .popup_cross-icon:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+.popup_title {
+  color: #000c2a;
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 41.6px */
+  padding-bottom: 30px;
+  text-align: left;
+}
+.popup_text {
+  color: #465564;
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 41.6px */
+  padding-bottom: 30px;
+  text-align: left;
+  white-space: pre-wrap;
 }
 @media (min-width: 320px) and (max-width: 680px) {
   .popup {
@@ -130,8 +163,8 @@ defineProps<{
     z-index: 9999;
   }
   .popup_title {
-    color: #181818;
-    font-family: "Noto Sans";
+    color: #000c2a;
+    font-family: "Montserrat";
     font-size: 24px;
     font-style: normal;
     font-weight: 700;

@@ -2,67 +2,124 @@
   <section class="advantages">
     <h2 class="advantages__title">Наши преимущества</h2>
     <div class="advantages__cards">
-      <div class="advantages__card">
+      <div v-for="content in cardContent" class="advantages__card">
         <img
           class="advantages__card-image"
-          src="../../../static/img/homepage/advantages/1.svg"
-          alt="цифра_один"
+          :src="`advantages/${content.image}`"
+          :alt="`цифра ${content.imageAlt}`"
         />
-        <p class="advantages__card-text">Собственный склад в Москве</p>
-      </div>
-      <div class="advantages__card">
-        <img
-          class="advantages__card-image"
-          src="../../../static/img/homepage/advantages/2.svg"
-          alt="цифра_два"
-        />
-        <p class="advantages__card-text">
-          Персональный менеджер для работы с партнерами
-        </p>
-      </div>
-      <div class="advantages__card">
-        <img
-          class="advantages__card-image"
-          src="../../../static/img/homepage/advantages/3.svg"
-          alt="цифра_три"
-        />
-        <p class="advantages__card-text">
-          Организация автоматического обмена данными
-        </p>
-      </div>
-      <div class="advantages__card">
-        <img
-          class="advantages__card-image"
-          src="../../../static/img/homepage/advantages/4.svg"
-          alt="цифра_четыре"
-        />
-        <p class="advantages__card-text">Оперативная логистика</p>
-      </div>
-      <div class="advantages__card">
-        <img
-          class="advantages__card-image"
-          src="../../../static/img/homepage/advantages/5.svg"
-          alt="цифра_пять"
-        />
-        <p class="advantages__card-text">
-          Интерфейс для быстрой обработки заказов
-        </p>
-      </div>
-      <div class="advantages__card">
-        <img
-          class="advantages__card-image"
-          src="../../../static/img/homepage/advantages/6.svg"
-          alt="цифра_шесть"
-        />
-        <p class="advantages__card-text">
-          Холдинговая структура. Хорошая деловая репутация
-        </p>
+        <p class="advantages__card-text">{{ content.text }}</p>
       </div>
     </div>
+    <AdvantagesSlider :cardContent="cardContent" />
   </section>
 </template>
 <script setup lang="ts">
 defineProps<{}>();
+const cardContent = [
+  {
+    image: "1.svg",
+    imageAlt: "один",
+    number: 1,
+    text: "Собственный склад в Москве",
+  },
+  {
+    image: "2.svg",
+    imageAlt: "два",
+    number: 2,
+    text: "Персональный менеджер для работы с партнерами",
+  },
+  {
+    image: "3.svg",
+    imageAlt: "три",
+    number: 3,
+    text: "Организация автоматического обмена данными",
+  },
+  {
+    image: "4.svg",
+    imageAlt: "четыре",
+    number: 4,
+    text: "Оперативная логистика",
+  },
+  {
+    image: "5.svg",
+    imageAlt: "пять",
+    number: 5,
+    text: "Интерфейс для быстрой обработки заказов",
+  },
+  {
+    image: "6.svg",
+    imageAlt: "шесть",
+    number: 6,
+    text: "Холдинговая структура. Хорошая деловая репутация",
+  },
+];
+// const mobCardContent = [
+//   {
+//     items: [
+//       {
+//         number: 1,
+//         text: "Собственный склад в Москве",
+//       },
+//       {
+//         number: 2,
+//         text: "Персональный менеджер для работы с партнерами",
+//       },
+//       {
+//         number: 3,
+//         text: "Организация автоматического обмена данными",
+//       },
+//     ],
+//   },
+//   {
+//     items: [
+//       {
+//         number: 4,
+//         text: "Оперативная логистика",
+//       },
+//       {
+//         number: 5,
+//         text: "Интерфейс для быстрой обработки заказов",
+//       },
+//       {
+//         number: 6,
+//         text: "Холдинговая структура. Хорошая деловая репутация",
+//       },
+//     ],
+//   },
+//   {
+//     items: [
+//       {
+//         number: 1,
+//         text: "Собственный склад в Москве",
+//       },
+//       {
+//         number: 2,
+//         text: "Персональный менеджер для работы с партнерами",
+//       },
+//       {
+//         number: 3,
+//         text: "Организация автоматического обмена данными",
+//       },
+//     ],
+//   },
+//   {
+//     items: [
+//       {
+//         number: 4,
+//         text: "Оперативная логистика",
+//       },
+//       {
+//         number: 5,
+//         text: "Интерфейс для быстрой обработки заказов",
+//       },
+//       {
+//         number: 6,
+//         text: "Холдинговая структура. Хорошая деловая репутация",
+//       },
+//     ],
+//   },
+// ];
 </script>
 <style scoped>
 .advantages {
@@ -73,8 +130,7 @@ defineProps<{}>();
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(../../../static/img/homepage/advantages/advantages-1920.jpg)
-    white 50% / cover no-repeat;
+  background: url(/advantages/advantages-1920.jpg) white 50% / cover no-repeat;
 }
 .advantages__title {
   color: #fff;
@@ -108,10 +164,48 @@ defineProps<{}>();
   line-height: 140%; /* 25.2px */
   letter-spacing: 0.036px;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .advantages {
+    width: 100%;
+    padding: 80px 60px;
+  }
+  .advantages__cards {
+    max-width: 1303px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 73px 121px;
+    justify-content: space-between;
+  }
 }
-@media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .advantages {
+    gap: 0;
+    padding: 74px 80px 20px;
+  }
+  .advantages__cards {
+    display: none;
+  }
 }
-@media (min-width: 320px) and (max-width: 374px) {
+@media (min-width: 700px) and (max-width: 767px) {
+  .advantages {
+    gap: 0;
+    padding: 74px 80px 20px;
+  }
+  .advantages__cards {
+    display: none;
+  }
+}
+@media (min-width: 320px) and (max-width: 699px) {
+  .advantages {
+    gap: 0;
+    padding: 60px 20px 20px;
+  }
+  .advantages__title {
+    font-size: 28px;
+  }
+  .advantages__cards {
+    display: none;
+  }
 }
 </style>

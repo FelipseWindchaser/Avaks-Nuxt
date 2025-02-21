@@ -1,18 +1,21 @@
 <template>
-  <Popup
+  <PopupWithForm
     :isOpen="isPopupOpen"
     :closePopup="closePopup"
     :request="request"
     :contact="contact"
+    :cards="cards"
+    :popupTitle="popupTitle"
+    :popupText="popupText"
   />
   <Intro />
   <Services />
   <Timeline />
-  <OurProducts />
-  <Partnership :openPopup="openPopup" :request="request" :contact="contact" />
+  <OurProducts :openPopup="openPopup" :cards="cards" />
+  <Partnership :openPopup="openPopup" :request="request" />
   <RetailPartners />
   <Advantages />
-  <Faq :openPopup="openPopup" :request="request" :contact="contact" />
+  <Faq :openPopup="openPopup" :contact="contact" />
   <Vacancies />
   <Contacts />
   <Subscription />
@@ -21,6 +24,9 @@
 const isPopupOpen = ref(false);
 const request = ref(false);
 const contact = ref(false);
+const cards = ref(false);
+let popupTitle = ref("");
+let popupText = ref("");
 const openPopup = (event: any) => {
   isPopupOpen.value = true;
 
@@ -30,12 +36,27 @@ const openPopup = (event: any) => {
   if (section?.id === "partnership") {
     request.value = true;
     contact.value = false;
-    console.log({ request: request.value, contact: contact.value });
+    // console.log({ request: request.value, contact: contact.value });
   }
-  if (section?.id !== "partnership") {
+  if (section?.id === "faq") {
     request.value = false;
     contact.value = true;
-    console.log({ request: request.value, contact: contact.value });
+    // console.log({ request: request.value, contact: contact.value });
+  }
+  if (section?.id === "our-products") {
+    request.value = false;
+    contact.value = false;
+    cards.value = true;
+
+    popupTitle = event.currentTarget.querySelector("#title")?.textContent || "";
+    popupText = event.currentTarget.querySelector("#text")?.textContent || "";
+
+    // console.log({
+    //   request: request.value,
+    //   contact: contact.value,
+    //   title: popupTitle,
+    //   text: popupText,
+    // });
   }
 
   const body = document.querySelector("body");

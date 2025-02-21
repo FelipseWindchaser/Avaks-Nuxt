@@ -10,6 +10,9 @@
           осознанный выбор.
         </p>
       </div>
+      <div class="faq_accordion-wrapper_mob">
+        <Accordion :elements="elements" :defaultOpenedElementId="'fq_1'" />
+      </div>
       <div class="faq__text-container">
         <h2 class="faq__title">Остались вопросы?</h2>
         <p class="faq__text">
@@ -23,7 +26,9 @@
         </div>
       </div>
     </div>
-    <Accordion :elements="elements" :defaultOpenedElementId="'fq_1'" />
+    <div class="faq_accordion-wrapper_pc">
+      <Accordion :elements="elements" :defaultOpenedElementId="'fq_1'" />
+    </div>
   </section>
 </template>
 <script setup lang="ts">
@@ -107,6 +112,8 @@ const elements = [
 }
 .faq_button-container {
   padding-top: 20px;
+  max-width: 270px;
+  width: 100%;
 }
 .faq__title {
   color: #0a2540;
@@ -125,10 +132,105 @@ const elements = [
   line-height: 140%; /* 25.2px */
   max-width: 599px;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+.faq_accordion-wrapper_mob {
+  display: none;
+  max-width: 925px;
+  width: 100%;
 }
-@media (min-width: 375px) and (max-width: 767px) {
+.faq_accordion-wrapper_pc {
+  max-width: 925px;
+  width: 100%;
 }
-@media (min-width: 320px) and (max-width: 374px) {
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .faq {
+    gap: 76px;
+  }
+  .faq_accordion-wrapper_pc {
+    max-width: 825px;
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .faq_accordion-wrapper_pc {
+    display: none;
+  }
+  .faq_accordion-wrapper_mob {
+    display: block;
+    max-width: 100%;
+  }
+  .faq {
+    justify-content: center;
+  }
+  .faq__text {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .faq_accordion-wrapper_pc {
+    display: none;
+  }
+  .faq_accordion-wrapper_mob {
+    display: block;
+    max-width: 100%;
+  }
+  .faq {
+    justify-content: center;
+    padding: 80px 60px;
+  }
+  .faq__text {
+    max-width: 100%;
+  }
+  .faq__title {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 767px) {
+  .faq {
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  .faq__title {
+    font-size: 28px;
+    text-align: left;
+  }
+  .faq__text {
+    max-width: 100%;
+    text-align: left;
+  }
+  .faq_accordion-wrapper_pc {
+    display: none;
+  }
+  .faq_accordion-wrapper_mob {
+    display: block;
+    max-width: 100%;
+  }
+  .faq__text-container {
+    align-items: flex-start;
+  }
+}
+@media (min-width: 320px) and (max-width: 499px) {
+  .faq {
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  .faq__title {
+    font-size: 28px;
+    text-align: center;
+  }
+  .faq__text {
+    max-width: 100%;
+    text-align: center;
+  }
+  .faq_accordion-wrapper_pc {
+    display: none;
+  }
+  .faq_accordion-wrapper_mob {
+    display: block;
+    max-width: 100%;
+  }
+  .faq__text-container {
+    align-items: center;
+  }
 }
 </style>

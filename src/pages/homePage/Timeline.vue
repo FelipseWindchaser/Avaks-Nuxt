@@ -1,72 +1,66 @@
 <template>
   <section class="timeline">
-    <div class="timeline__slider">
-      <div class="timeline__slide">
-        <div class="timeline__slide-background"></div>
-        <div class="timeline__slide-text-container">
-          <p class="timeline__slide-title">2015</p>
-          <p class="timeline__slide-text">
-            Стартовал блок розничных продаж. На тот момент AVAKS был еще совсем
-            небольшим локальным игроком на рынке гаджетов и бытовой техники.
-          </p>
-        </div>
-      </div>
-      <div class="timeline__pagination"></div>
-    </div>
+    <TimelineSlider :slideContent="slideContent" />
   </section>
 </template>
 <script setup lang="ts">
-defineProps<{}>();
+const slideContent = [
+  {
+    title: "2015",
+    image: "slide-1.jpg",
+    text: `Стартовал блок розничных продаж. На тот момент AVAKS был еще совсем
+            небольшим локальным игроком на рынке гаджетов и бытовой техники.`,
+  },
+  {
+    title: "2016",
+    image: "slide-2.jpg",
+    text: `Группа единомышленников оформилась как юридическое лицо и стартовала проект по продаже роботов-мойщиков окон. В этом году у AVAKS появились федеральные клиенты и был создан дивизион по работе с оптом (DNS, Азбука Вкуса).`,
+  },
+  {
+    title: "2017",
+    image: "slide-3.jpg",
+    text: `Был запущен успешный проект по эксклюзивной дистрибуции инновационных 3D-ручек (Creopop.com), а также брендов HOBOT и iRobot. AVAKS впервые вышел на Wildberries. Стартовал проект по технической дистрибуции брендов Знатоком, Bissel, ECOVACS, Shokz, а также инновационных AI-роботов для детей Roobo.`,
+  },
+  {
+    title: "2018",
+    image: "slide-4.jpg",
+    text: `Заключено партнерство с крупным английским брендом МБТ - Morphy Richards, AVAKS стал эксклюзивным дистрибьютором MR на рынке РФ. Впервые вышли на Ozon.`,
+  },
+  {
+    title: "2019",
+    image: "slide-5.jpg",
+    text: `Стали эксклюзивным дистрибьютором бренда Noerden, начали работать с группой компаний Alibaba и TMALL. В портфель федеральных клиентов добавился Holodilnik.ru.`,
+  },
+  {
+    title: "2020",
+    image: "slide-6.jpg",
+    text: `Cтали эксклюзивным представителем бренда ATVEL на территории стран ЕАЭС. Получили статус дистрибутора iLife и заключили партнерство с испанским производителем МБТ Cecotec Innovaciones S.L. в части эксклюзивных поставок на территорию РФ.`,
+  },
+  {
+    title: "2021",
+    image: "slide-7.jpg",
+    text: `Запустили собственные логистические решения. В портфель федеральных клиентов вошли МВидео, РБТ, Связной. Стали эксклюзивным партнером бренда SteamOne на территории стран ЕАЭС. Разработали собственное ERP решение и внедрили PIM в IT-экосистему компании.`,
+  },
+  {
+    title: "2022",
+    image: "slide-8.jpg",
+    text: `При сохранении предыдущий достижений, значительно расширили коммерческие партнерства с крупными сетевыми федеральными клиентами - Ситилинк, Детский Мир, Hoff, Leroy Merlin, МТС, проекты X5 Retail Group.`,
+  },
+  {
+    title: "2023",
+    image: "slide-9.jpg",
+    text: `Компания успешно адаптировалась к новым геополитическим и макроэкономическим условиям и достигла новых вершин, обеспечив выручку больше 1 млрд. рублей.`,
+  },
+];
 </script>
 <style scoped>
 .timeline {
   width: 100%;
-  height: 544px;
+  /* height: 544px; */
   position: relative;
+  z-index: 3;
 }
-.timeline__slide {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
-.timeline__slide-background {
-  background: url(../../../static/img/homepage/timeline-slider/1.jpg) white 50% /
-    cover no-repeat;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-.timeline__slide-text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 465px;
-  padding-top: 92px;
-}
-.timeline__slide-title {
-  color: #fff;
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 168px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.timeline__slide-text {
-  color: var(--White, #fff);
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 140%; /* 25.2px */
-  letter-spacing: 0.036px;
-}
+
 @media (min-width: 768px) and (max-width: 1024px) {
 }
 @media (min-width: 375px) and (max-width: 767px) {

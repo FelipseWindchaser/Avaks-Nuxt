@@ -32,13 +32,20 @@ const computedOpenedElement = computed(() => {
 
 const handleClick = (id: string) => {
   openedElement.value = openedElement.value === id ? undefined : id;
+  console.log(openedElement.value);
 };
 </script>
 <style scoped>
 .accordion {
   display: flex;
   flex-direction: column;
-  max-width: 861px;
   width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+@media (min-width: 375px) and (max-width: 767px) {
+}
+@media (min-width: 320px) and (max-width: 374px) {
 }
 </style>

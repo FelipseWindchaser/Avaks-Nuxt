@@ -11,9 +11,7 @@
       type="email"
       placeholder="name@gmail.com"
     />
-    <button class="subscription__form-button" type="submit">
-      Отправить сообщение
-    </button>
+    <button class="subscription__form-button" type="submit">Отправить</button>
   </form>
 </template>
 <script setup lang="ts">
@@ -91,10 +89,24 @@ const submitForm = async () => {
 .subscription__form-button:hover {
   opacity: 0.7;
 }
+@media (min-width: 1440px) and (max-width: 1919px) {
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .subscription__form {
+    max-width: 700px;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) {
+  .subscription__form {
+    max-width: 640px;
+  }
 }
-@media (min-width: 375px) and (max-width: 767px) {
-}
-@media (min-width: 320px) and (max-width: 374px) {
+@media (min-width: 320px) and (max-width: 767px) {
+  .subscription__form {
+    max-width: 100%;
+  }
+  .subscription__form-input {
+    font-size: 14px;
+  }
 }
 </style>

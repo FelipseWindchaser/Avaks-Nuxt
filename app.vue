@@ -6,6 +6,5 @@
 <script setup lang="ts">
 import "@style/main.css";
 import "./node_modules/modern-normalize/modern-normalize.css";
-
-import "./node_modules/swiper/swiper.min.css"; // Это я подключил
+import "./node_modules/swiper/swiper.min.css";
 </script>
