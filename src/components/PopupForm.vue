@@ -1,6 +1,6 @@
 <template>
   <form
-    v-if="props.request"
+    v-if="props.pathToFile.includes('request')"
     class="form"
     name="request-form"
     @submit.prevent="submitForm"
@@ -86,7 +86,7 @@
   </form>
 
   <form
-    v-else-if="props.contact"
+    v-else-if="props.pathToFile.includes('contact')"
     class="form"
     name="contact-form"
     @submit.prevent="submitForm"
@@ -149,7 +149,7 @@
   </form>
 </template>
 <script setup lang="ts">
-const props = defineProps<{ request?: boolean; contact?: boolean }>();
+const props = defineProps<{ pathToFile: string }>();
 const isSubmitting = ref(false);
 
 const formData = ref<{
@@ -168,26 +168,10 @@ const formData = ref<{
   content: "",
 });
 
-let pathToFile;
-
-switch (true) {
-  case props.request:
-    pathToFile = "./request-form.php";
-    break;
-  case props.contact:
-    pathToFile = "./contact-form.php";
-    break;
-
-  default:
-    throw new Error(
-      "Invalid form type: Either 'request' or 'contact' must be true."
-    );
-}
-
 const submitForm = async () => {
   isSubmitting.value = true;
   try {
-    const response = await fetch(pathToFile, {
+    const response = await fetch(props.pathToFile, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
