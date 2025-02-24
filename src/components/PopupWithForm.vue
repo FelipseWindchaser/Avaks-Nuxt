@@ -26,29 +26,25 @@
           stroke-linejoin="round"
         />
       </svg>
-      <div v-if="request" class="popup_content">
-        <PopupForm pathToFile="./request-form.php" />
+
+      <div v-if="formType === FormType.CARDS" class="popup_card-content">
+        <h3 class="popup_title">{{ content?.title }}</h3>
+        <p class="popup_text">{{ content?.text }}</p>
       </div>
-      <div v-else-if="contact" class="popup_content">
-        <PopupForm pathToFile="./contact-form.php" />
-      </div>
-      <div v-else-if="cards" class="popup_card-content">
-        <h3 class="popup_title">{{ popupTitle }}</h3>
-        <p class="popup_text">{{ popupText }}</p>
+      <div v-else class="popup_content">
+        <PopupForm :pathToFile="formType" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { FormType } from "@components/types";
 defineProps<{
   isOpen: boolean;
   closePopup: () => void;
-  contact?: boolean;
-  request?: boolean;
-  cards?: boolean;
-  popupTitle: string;
-  popupText: string;
+  formType: FormType;
+  content?: { title: string; text: string };
 }>();
 </script>
 

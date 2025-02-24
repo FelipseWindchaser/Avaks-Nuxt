@@ -4,7 +4,6 @@ import { resolve } from "path";
 const projectRootDir = resolve(__dirname);
 
 export default defineNuxtConfig({
-  
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
 
@@ -14,13 +13,8 @@ export default defineNuxtConfig({
     },
     head: {
       title: "Avaks — новые точки соприкосновения.",
-      meta: [
-        {
-    
-        },
-      ],
+      meta: [{}],
     },
-    
   },
 
   components: [
@@ -36,6 +30,7 @@ export default defineNuxtConfig({
 
   alias: {
     "@src": resolve(projectRootDir, "src/"),
+    "@components": resolve(projectRootDir, "src/components"),
     "@img": resolve(projectRootDir, "static/img"),
     "@style": resolve(projectRootDir, "static/css"),
   },

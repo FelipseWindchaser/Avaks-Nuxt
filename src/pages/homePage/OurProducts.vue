@@ -7,7 +7,13 @@
       <div
         v-for="card in cardContent"
         class="our-products__card"
-        @click="openPopup"
+        @click="
+          () =>
+            openPopup(FormType.CARDS, {
+              title: card.title,
+              text: card.fullText,
+            })
+        "
       >
         <img
           class="our-products__card-icon"
@@ -31,7 +37,13 @@
   </section>
 </template>
 <script setup lang="ts">
-defineProps<{ openPopup: (event: any) => void }>();
+import { FormType } from "@components/types";
+defineProps<{
+  openPopup: (
+    type: FormType,
+    content?: { title: string; text: string }
+  ) => void;
+}>();
 const cardContent = [
   {
     icon: "robots_g1.svg",

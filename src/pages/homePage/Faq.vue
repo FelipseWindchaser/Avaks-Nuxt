@@ -22,7 +22,7 @@
           поддержку.
         </p>
         <div class="faq_button-container">
-          <ContactButton :openPopup="openPopup" :contact="contact" />
+          <ContactButton :openPopup="() => openPopup(FormType.CONTACT)" />
         </div>
       </div>
     </div>
@@ -32,9 +32,9 @@
   </section>
 </template>
 <script setup lang="ts">
+import { FormType } from "@components/types";
 defineProps<{
-  openPopup: (event: any) => void;
-  contact?: boolean;
+  openPopup: (type: FormType) => void;
 }>();
 const elements = [
   {

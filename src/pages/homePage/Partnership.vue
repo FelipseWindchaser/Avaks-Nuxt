@@ -30,7 +30,7 @@
           </p>
         </li>
       </ul>
-      <ContactButton :openPopup="openPopup" />
+      <ContactButton :openPopup="() => openPopup(FormType.REQUEST)" />
     </div>
     <div class="partnership__image-container">
       <img
@@ -42,8 +42,10 @@
   </section>
 </template>
 <script setup lang="ts">
+import { FormType } from "@components/types";
+
 defineProps<{
-  openPopup: (event: any) => void;
+  openPopup: (type: FormType) => void;
 }>();
 </script>
 <style scoped>
