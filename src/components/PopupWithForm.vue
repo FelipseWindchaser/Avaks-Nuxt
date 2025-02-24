@@ -58,6 +58,8 @@ defineProps<{
   /* position: absolute; */
   position: fixed;
   z-index: 9999;
+  overflow-y: auto;
+
   /* background-color: #000; */
 }
 .popup_overlay {
@@ -71,13 +73,15 @@ defineProps<{
 .popup_wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: auto;
+  /* align-items: center; */
+  max-height: 100vh;
+  height: min-content;
   border-radius: 24px;
   background: var(--white, #fff);
   z-index: 9999;
   position: relative;
   padding: 60px;
+  overflow-y: auto;
 }
 
 .popup_content {
@@ -106,7 +110,11 @@ defineProps<{
   cursor: pointer;
   opacity: 0.7;
 }
-
+.popup_title {
+  color: #0a2540;
+  font-size: 22px;
+  padding-bottom: 20px;
+}
 .popup_text {
   color: #465564;
   font-family: "Montserrat";
@@ -140,7 +148,9 @@ defineProps<{
   }
   .popup_wrapper {
     padding: 49px 30px 40px;
-    height: auto;
+    height: min-content;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   .popup_form-checkbox {
@@ -163,7 +173,7 @@ defineProps<{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
     padding: 0 16px;
   }
   .active {
@@ -179,7 +189,9 @@ defineProps<{
   }
   .popup_wrapper {
     padding: 49px 30px 40px;
-    height: auto;
+    max-height: 100vh;
+    height: min-content;
+    overflow-y: auto;
   }
 
   .popup_form-checkbox {
