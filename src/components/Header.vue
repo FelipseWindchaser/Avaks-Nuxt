@@ -38,7 +38,7 @@
           </li>
         </ul>
       </nav>
-      <a href="#" class="header__logo">
+      <a href="/" class="header__logo">
         <img
           class="header__image"
           src="../../static/img/homepage/logo.svg"

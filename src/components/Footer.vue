@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer__container">
-      <a href="#" class="footer__logo">
+      <a href="/" class="footer__logo">
         <img
           class="footer__image"
           src="../../static/img/homepage/logo_footer.svg"
@@ -31,7 +31,9 @@
         </p>
       </div>
       <div class="footer__link-container">
-        <a class="footer__link">Политика конфиденциальности</a>
+        <a href="/privacy-policy" class="footer__link"
+          >Политика конфиденциальности</a
+        >
       </div>
     </div>
   </footer>
@@ -104,6 +106,7 @@
   opacity: 0.6;
   max-width: min-content;
   text-wrap: nowrap;
+  text-decoration: none;
 }
 .footer__link:hover {
   opacity: 0.4;

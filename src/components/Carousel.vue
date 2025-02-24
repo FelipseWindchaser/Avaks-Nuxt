@@ -1,27 +1,24 @@
 <template>
   <swiper
     class="marquee-swiper"
+    :modules="[Autoplay]"
     :observer="true"
+    :loop="true"
     :observeParents="true"
     :slidesPerView="4"
-    :slidesPerGroup="9"
-    :loopAddBlankSlides="false"
-    :modules="[Autoplay]"
-    :speed="20000"
-    :loop="true"
-    :loopPreventsSliding="true"
-    :freeMode="true"
-    :autoplay="true"
-    :delay="0"
-    :disableOnInteraction="false"
-    :grabCursor="true"
-    :spaceBetween="5"
+    :spaceBetween="100"
+    :speed="3000"
+    :autoplay="{
+      delay: 0,
+      disableOnInteraction: false,
+    }"
+    :on="{}"
     :breakpoints="{
       1024: {
-        spaceBetween: 10,
+        slidesPerView: 3,
       },
-      1220: {
-        spaceBetween: 20,
+      1441: {
+        slidesPerView: 4,
       },
     }"
   >
@@ -60,11 +57,13 @@ const chunkedData = () => {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 193px;
+  /* gap: 193px; */
   width: 100%;
   overflow: hidden;
   min-height: 66px;
   position: relative;
+  /* cursor: grab; */
+  pointer-events: none;
 }
 
 .marquee-slide {

@@ -306,6 +306,7 @@ const content = [
   .retail-partners__text-container {
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 20px;
   }
   .retail-partners__title {
     max-width: 100%;
