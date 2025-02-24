@@ -64,14 +64,14 @@
     <label class="form__form-label" for="content"
       >Тип продукции, дополнительная информация<span class="color">*</span>
     </label>
-    <input
+    <textarea
       name="content"
       id="content"
       class="form__input textarea"
       type="textarea"
       v-model="formData.content"
       required
-    />
+    ></textarea>
     <div class="form__checkbox_wrapper">
       <input class="form__checkbox" type="checkbox" id="checkbox" checked />
       <p class="form__checkbox_text">
@@ -128,14 +128,14 @@
     <label class="form__form-label" for="content"
       >Дополнительная информация<span class="color">*</span>
     </label>
-    <input
+    <textarea
       name="content"
       id="content"
       class="form__input textarea"
       type="textarea"
       v-model="formData.content"
       required
-    />
+    ></textarea>
     <div class="form__checkbox_wrapper">
       <input class="form__checkbox" type="checkbox" id="checkbox" checked />
       <p class="form__checkbox_text">
@@ -319,11 +319,61 @@ const submitForm = async () => {
 }
 .textarea {
   height: 100px;
+  resize: none;
 }
-@media (min-width: 768px) and (max-width: 1024px) {
-}
-@media (min-width: 375px) and (max-width: 767px) {
+
+@media (min-width: 375px) and (max-width: 499px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .form__title {
+    color: #0a2540;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    padding-bottom: 12px;
+  }
+  .form__form-label {
+    color: #0a2540;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
 }
 @media (min-width: 320px) and (max-width: 374px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .form__title {
+    color: #0a2540;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    padding-bottom: 12px;
+  }
+  .form__form-label {
+    color: #0a2540;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .textarea {
+    height: 80px;
+  }
+  .form__input {
+    padding: 10px;
+  }
 }
 </style>

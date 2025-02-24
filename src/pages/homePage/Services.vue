@@ -141,9 +141,12 @@ const elements = [
     gap: 40px;
     padding: 60px 20px;
   }
-
+  .services__text {
+    font-size: 16px;
+  }
   .services__text-container {
     max-width: 1000px;
+    gap: 20px;
     width: 100%;
   }
 }
@@ -154,10 +157,14 @@ const elements = [
     gap: 40px;
     padding: 60px 20px;
   }
+  .services__text {
+    font-size: 16px;
+  }
 
   .services__text-container {
     max-width: 1000px;
     width: 100%;
+    gap: 20px;
   }
 }
 </style>

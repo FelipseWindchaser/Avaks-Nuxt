@@ -205,5 +205,8 @@ const cardContent = [
   .our-products__cards {
     display: none;
   }
+  .our-products__title {
+    font-size: 28px;
+  }
 }
 </style>

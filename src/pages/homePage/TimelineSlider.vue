@@ -6,8 +6,9 @@
       :slidesPerView="1"
       :speed="500"
       :modules="[Autoplay, Pagination]"
-      :autoplay="true"
+      :autoplay="false"
       :delay="5000"
+      :loop="true"
       :disableOnInteraction="true"
       :pagination="{ clickable: true }"
       :spaceBetween="5"
@@ -23,11 +24,13 @@
         v-for="content in props.slideContent"
         class="timeline__slide"
       >
-        <img
-          class="timeline__slide-background"
-          :src="`/timeline-slider/${content.image}`"
-          alt="фоновая картинка"
-        />
+        <div class="timeline__image-container">
+          <img
+            :class="`timeline__slide-background ${content.class}`"
+            :src="`/timeline-slider/${content.image}`"
+            alt="фоновая картинка"
+          />
+        </div>
         <div class="timeline__slide-text-container">
           <p class="timeline__slide-title">{{ content.title }}</p>
           <p class="timeline__slide-text">
@@ -42,6 +45,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   slideContent: {
+    class: string;
     image: string;
     title: string;
     text: string;
@@ -76,6 +80,14 @@ import "swiper/css/pagination";
   height: 544px;
 }
 .timeline__slide-background {
+  /* position: absolute; */
+  /* width: 100%;
+  max-height: 544px; */
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.timeline__image-container {
   position: absolute;
   width: 100%;
   max-height: 544px;
@@ -83,7 +95,6 @@ import "swiper/css/pagination";
   pointer-events: none;
   z-index: -1;
 }
-
 .timeline__slide-text-container {
   display: flex;
   flex-direction: column;
@@ -111,6 +122,20 @@ import "swiper/css/pagination";
   letter-spacing: 0.036px;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+  .timeline__slide {
+    height: 405px;
+  }
+  .timeline__slide-background {
+    max-height: 405px;
+    height: 100%;
+  }
+  .timeline__slide-title {
+    font-size: 107px;
+    line-height: normal;
+  }
+  .timeline__slide-text {
+    font-size: 16px;
+  }
 }
 @media (min-width: 540px) and (max-width: 767px) {
   .timeline__slide-text-container {
@@ -162,6 +187,60 @@ import "swiper/css/pagination";
   .timeline__slide-text {
     font-size: 15px;
     line-height: 120%;
+  }
+  .slide-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+  }
+  .slide-2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .slide-3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .slide-4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .slide-5 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .slide-6 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .slide-7 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right bottom;
+  }
+  .slide-8 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+  }
+  .slide-9 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
   }
 }
 </style>

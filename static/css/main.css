@@ -6,7 +6,8 @@
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../vendors/fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf") format("truetype");
+  src: url("../vendors/fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: normal;
 }
@@ -47,10 +48,34 @@ p {
 
 .main {
   font-family: "Montserrat";
-  overflow: hidden; 
+  overflow: hidden;
 }
 .scroll-off {
   overflow-y: hidden;
 }
 
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper.marquee-swiper {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    white 10%,
+    white 90%,
+    transparent 100%
+  );
+}
+
+.marquee-swiper > .swiper-wrapper {
+  transition-timing-function: linear;
+  gap: 0;
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .marquee-swiper > .swiper-wrapper {
+    transition-timing-function: linear;
+    gap: 100px;
+  }
+}
 

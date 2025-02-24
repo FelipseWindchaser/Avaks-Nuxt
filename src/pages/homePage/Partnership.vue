@@ -212,6 +212,17 @@ defineProps<{
     background: #f5f7fc;
     gap: 80px;
   }
+  .partnership__title {
+    font-size: 28px;
+    padding-bottom: 20px;
+  }
+  .partnership__description {
+    padding-bottom: 32px;
+  }
+  .partnership__list-item-title {
+    padding: 0;
+    font-size: 18px;
+  }
   .partnership__container {
     max-width: 970px;
     /* width: 100%; */
@@ -227,12 +238,12 @@ defineProps<{
   }
 
   .partnership__list {
-    padding: 0 0 51px 19px;
+    padding: 0 0 32px 0;
     margin: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 24px;
   }
   .partnership__list-item {
     max-width: 520px;
@@ -242,19 +253,11 @@ defineProps<{
     /* padding-left: 19px; */
   }
   .partnership__list-item-border {
-    border-left: 3px solid #325cc8;
+    border: none;
   }
-  .partnership__list-item-title {
-    padding-left: 16px;
-    color: var(--Text-primary, #000);
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 24px */
-  }
+
   .partnership__list-item-text {
-    padding-left: 19px;
+    padding-left: 0;
     color: #425466;
 
     /* Text/Small/Medium */

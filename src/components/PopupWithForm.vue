@@ -110,16 +110,7 @@ defineProps<{
   cursor: pointer;
   opacity: 0.7;
 }
-.popup_title {
-  color: #000c2a;
-  font-family: "Montserrat";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%; /* 41.6px */
-  padding-bottom: 30px;
-  text-align: left;
-}
+
 .popup_text {
   color: #465564;
   font-family: "Montserrat";
@@ -131,7 +122,7 @@ defineProps<{
   text-align: left;
   white-space: pre-wrap;
 }
-@media (min-width: 320px) and (max-width: 680px) {
+@media (min-width: 500px) and (max-width: 680px) {
   .popup {
     display: none;
     justify-content: center;
@@ -152,30 +143,54 @@ defineProps<{
     z-index: 999;
   }
   .popup_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 49px 20px 24px;
-    height: 434px;
-    border-radius: 24px;
-    background: var(--white, #fff);
-    z-index: 9999;
+    padding: 49px 30px 40px;
+    height: auto;
   }
-  .popup_title {
-    color: #000c2a;
-    font-family: "Montserrat";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%; /* 41.6px */
-    padding-bottom: 30px;
-  }
+
   .popup_form-checkbox {
     align-self: center;
   }
   .popup_form-button {
     font-size: 18px;
+  }
+  .popup_cross-icon {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (min-width: 320px) and (max-width: 499px) {
+  .popup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 0 16px;
+  }
+  .active {
+    display: flex;
+  }
+  .popup_overlay {
+    background-color: #000c;
+    opacity: 0.5;
+    width: 100vw;
+    height: calc(100vh + 200px);
+    position: absolute;
+    z-index: 999;
+  }
+  .popup_wrapper {
+    padding: 49px 30px 40px;
+    height: auto;
+  }
+
+  .popup_form-checkbox {
+    align-self: center;
+  }
+  .popup_form-button {
+    font-size: 15px;
   }
   .popup_cross-icon {
     position: absolute;

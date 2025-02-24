@@ -186,6 +186,9 @@ const cardContent = [
   .advantages__cards {
     display: none;
   }
+  .advantages__title {
+    font-size: 28px;
+  }
 }
 @media (min-width: 700px) and (max-width: 767px) {
   .advantages {

@@ -6,8 +6,9 @@
       :slidesPerView="1"
       :speed="500"
       :modules="[Autoplay, Pagination]"
-      :autoplay="false"
+      :autoplay="true"
       :delay="5000"
+      :loop="true"
       :disableOnInteraction="true"
       :pagination="{ clickable: true }"
       :spaceBetween="5"
@@ -86,6 +87,7 @@ import "swiper/css/pagination";
 }
 .services__slide-background {
   position: absolute;
+  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -134,7 +136,7 @@ import "swiper/css/pagination";
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .services__slider {
-    display: block;
+    display: flex;
   }
   .services__slide-number {
     padding-bottom: 30px;
@@ -146,20 +148,10 @@ import "swiper/css/pagination";
     font-size: 15px;
   }
 }
-@media (min-width: 375px) and (max-width: 767px) {
+
+@media (min-width: 376px) and (max-width: 767px) {
   .services__slider {
-    display: block;
-  }
-  .services__slide-number {
-    padding-bottom: 30px;
-  }
-  .services__slide {
-    /* height: 572px; */
-  }
-}
-@media (min-width: 375px) and (max-width: 767px) {
-  .services__slider {
-    display: block;
+    display: flex;
   }
   .services__slide-number {
     padding-bottom: 30px;
@@ -174,9 +166,9 @@ import "swiper/css/pagination";
     font-size: 15px;
   }
 }
-@media (min-width: 320px) and (max-width: 374px) {
+@media (min-width: 320px) and (max-width: 375px) {
   .services__slider {
-    display: block;
+    display: flex;
   }
   .services__slide-number {
     padding-bottom: 30px;

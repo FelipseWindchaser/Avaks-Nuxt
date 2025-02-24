@@ -23,10 +23,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 13px;
+  gap: 26px;
   max-width: 790px;
   width: 100%;
-  padding: 328px 0 435px;
+  /* padding: 328px 0 435px; */
+  padding: 288px 0 395px;
 }
 .intro__title {
   color: #fff;
@@ -48,10 +49,28 @@
   opacity: 0.6;
   /* max-width: 604px; */
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .intro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../../static/img/homepage/header/768.jpg) white 50% /
+      cover no-repeat;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .intro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../../static/img/homepage/header/768.jpg) white 50% /
+      cover no-repeat;
+  }
   .intro__text-container {
     max-width: 648px;
-    padding: 134px 0 174px;
+    padding: 134px 0 175px;
     gap: 24px;
   }
   .intro__title {
@@ -100,17 +119,56 @@
     opacity: 1;
   }
 }
-@media (min-width: 320px) and (max-width: 559px) {
+@media (min-width: 375px) and (max-width: 559px) {
+  .intro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../../static/img/homepage/header/375.jpg) white 60% /
+      cover no-repeat;
+  }
   .intro__text-container {
     max-width: 335px;
-    padding: 134px 0 174px;
+    padding: 130px 0 100px;
     gap: 20px;
   }
   .intro__title {
     color: #fff;
     text-align: center;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+  }
+  .intro__subtitle {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    opacity: 1;
+  }
+}
+@media (min-width: 320px) and (max-width: 374px) {
+  .intro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../../static/img/homepage/header/375.jpg) white 60% /
+      cover no-repeat;
+  }
+  .intro__text-container {
+    max-width: 335px;
+    padding: 130px 0 100px;
+    gap: 20px;
+  }
+  .intro__title {
+    color: #fff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 28px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%;

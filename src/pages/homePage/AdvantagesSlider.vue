@@ -7,7 +7,7 @@
       :slidesPerGroup="2"
       :speed="500"
       :modules="[Autoplay, Pagination]"
-      :autoplay="true"
+      :autoplay="false"
       :delay="5000"
       :disableOnInteraction="true"
       :pagination="{ clickable: true }"
@@ -48,7 +48,7 @@
       :slidesPerGroup="1"
       :speed="500"
       :modules="[Autoplay, Pagination]"
-      :autoplay="true"
+      :autoplay="false"
       :delay="5000"
       :disableOnInteraction="true"
       :pagination="{ clickable: true }"
@@ -94,7 +94,6 @@ const props = defineProps<{
   }[];
 }>();
 
-console.log(props.cardContent);
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/pagination";

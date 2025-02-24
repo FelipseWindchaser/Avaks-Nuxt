@@ -182,6 +182,12 @@ const toggleNav = () => {
   .header__navigation-links {
     right: -55px;
   }
+  .header__navigation-links {
+    font-size: 20px;
+  }
+  .header__navigation-name {
+    font-size: 20px;
+  }
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .header__container {
