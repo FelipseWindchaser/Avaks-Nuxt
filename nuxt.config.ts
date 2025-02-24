@@ -12,12 +12,14 @@ export default defineNuxtConfig({
     rootAttrs: {
       class: "main",
     },
-    // head: {
-    //   meta: [{
-    //     name:'preview',
-    //     content:
-    //   }]
-    // }
+    head: {
+      title: "Avaks — новые точки соприкосновения.",
+      meta: [
+        {
+    
+        },
+      ],
+    },
     
   },
 
