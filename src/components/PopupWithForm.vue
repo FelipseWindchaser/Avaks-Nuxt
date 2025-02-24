@@ -27,10 +27,10 @@
         />
       </svg>
       <div v-if="request" class="popup_content">
-        <PopupForm :request="request" />
+        <PopupForm pathToFile="./request-form.php" />
       </div>
       <div v-else-if="contact" class="popup_content">
-        <PopupForm :contact="contact" />
+        <PopupForm pathToFile="./contact-form.php" />
       </div>
       <div v-else-if="cards" class="popup_card-content">
         <h3 class="popup_title">{{ popupTitle }}</h3>
