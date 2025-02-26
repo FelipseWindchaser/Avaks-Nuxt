@@ -76,7 +76,7 @@
       <input class="form__checkbox" type="checkbox" id="checkbox" checked />
       <p class="form__checkbox_text">
         Я принимаю
-        <a href="/privacy-policy" class="form__link"
+        <a href="/privacy-policy" target="_blank" class="form__link"
           >условия передачи информации и обработки персональных данных</a
         >
       </p>
@@ -140,7 +140,7 @@
       <input class="form__checkbox" type="checkbox" id="checkbox" checked />
       <p class="form__checkbox_text">
         Я принимаю
-        <a href="/privacy-policy" class="form__link"
+        <a href="/privacy-policy" target="_blank" class="form__link"
           >условия передачи информации и обработки персональных данных</a
         >
       </p>
@@ -149,7 +149,10 @@
   </form>
 </template>
 <script setup lang="ts">
-const props = defineProps<{ pathToFile: string }>();
+const props = defineProps<{
+  pathToFile: string;
+  closePopup: () => void;
+}>();
 const isSubmitting = ref(false);
 
 const formDataDefault = {
@@ -182,7 +185,7 @@ const submitForm = async () => {
     });
 
     if (response.ok) {
-      formData.value = { ...formDataDefault };
+      props.closePopup();
     }
   } catch (error) {
     if (error instanceof Error) alert("Произошла ошибка: " + error.message);

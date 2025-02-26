@@ -38,6 +38,7 @@ const submitForm = async () => {
     });
 
     if (response.ok) {
+      alert("Вы успешно подписались на рассылку!");
       formData.value = { ...formDataDefault };
     }
   } catch (error) {

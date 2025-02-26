@@ -32,7 +32,11 @@
         <p class="popup_text">{{ content?.text }}</p>
       </div>
       <div v-else class="popup_content">
-        <PopupForm :pathToFile="formType" />
+        <PopupForm
+          v-if="isOpen"
+          :pathToFile="formType"
+          :closePopup="closePopup"
+        />
       </div>
     </div>
   </div>
