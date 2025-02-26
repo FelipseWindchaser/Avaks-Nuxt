@@ -27,15 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fullname = sanitizeInput($data['fullname']);
         $company = sanitizeInput($data['company']);
         $city = sanitizeInput($data['city']);
-        $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
-        $phone = preg_replace('/[^\d\+\-\(\)\s]/', '', $data['phone']); // Only allow digits, +, -, (), spaces
-        $content = sanitizeInput($data['content']);
-
-        // Validate email after sanitization
+        
+        // First sanitize the email by trimming
+        $email = trim($data['email']);
+        
+        // Validate email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Некорректный email адрес";
+            echo json_encode(["error" => "Некорректный email адрес"]);
             exit;
         }
+        
+        $phone = preg_replace('/[^\d\+\-\(\)\s]/', '', $data['phone']); // Only allow digits, +, -, (), spaces
+        $content = sanitizeInput($data['content']);
 
         // Список email-адресов, куда нужно отправить письмо
         $recipients = ["felipsesolaris@gmail.com"];

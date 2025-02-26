@@ -76,7 +76,7 @@
       <input class="form__checkbox" type="checkbox" id="checkbox" checked />
       <p class="form__checkbox_text">
         Я принимаю
-        <a href="#" class="form__link"
+        <a href="/privacy-policy" class="form__link"
           >условия передачи информации и обработки персональных данных</a
         >
       </p>
@@ -140,7 +140,7 @@
       <input class="form__checkbox" type="checkbox" id="checkbox" checked />
       <p class="form__checkbox_text">
         Я принимаю
-        <a href="#" class="form__link"
+        <a href="/privacy-policy" class="form__link"
           >условия передачи информации и обработки персональных данных</a
         >
       </p>

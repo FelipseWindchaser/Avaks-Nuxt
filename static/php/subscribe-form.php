@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // Очищаем и обрабатываем входные данные
-        $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
-
-        // Validate email after sanitization
+        // First sanitize the email by trimming
+        $email = trim($data['email']);
+        
+        // Validate email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo json_encode(["error" => "Некорректный email адрес"]);
             exit;
