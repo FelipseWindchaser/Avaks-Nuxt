@@ -19,11 +19,12 @@
 defineProps<{}>();
 
 const isSubmitting = ref(false);
+const formDataDefault = {
+  email: "",
+} as const;
 const formData = ref<{
   email: string;
-}>({
-  email: "",
-});
+}>({ ...formDataDefault });
 
 const submitForm = async () => {
   isSubmitting.value = true;
@@ -35,15 +36,10 @@ const submitForm = async () => {
       },
       body: JSON.stringify(formData.value),
     });
-    console.log(formData.value);
-    // if (!response.ok) {
-    //   throw new Error("Ошибка отправки формы");
-    // }
 
-    const result = await response.text(); // или `response.json()` если PHP возвращает JSON
-
-    alert(result);
-    // alert("Письмо успешно отправлено!");
+    if (response.ok) {
+      formData.value = { ...formDataDefault };
+    }
   } catch (error) {
     if (error instanceof Error) alert("Произошла ошибка: " + error.message);
   } finally {

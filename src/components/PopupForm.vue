@@ -152,6 +152,15 @@
 const props = defineProps<{ pathToFile: string }>();
 const isSubmitting = ref(false);
 
+const formDataDefault = {
+  fullname: "",
+  email: "",
+  phone: "",
+  company: "",
+  city: "",
+  content: "",
+} as const;
+
 const formData = ref<{
   fullname: string;
   email: string;
@@ -159,14 +168,7 @@ const formData = ref<{
   company: string;
   city: string;
   content: string;
-}>({
-  fullname: "",
-  email: "",
-  phone: "",
-  company: "",
-  city: "",
-  content: "",
-});
+}>({ ...formDataDefault });
 
 const submitForm = async () => {
   isSubmitting.value = true;
@@ -179,14 +181,9 @@ const submitForm = async () => {
       body: JSON.stringify(formData.value),
     });
 
-    // if (!response.ok) {
-    //   throw new Error("Ошибка отправки формы");
-    // }
-
-    const result = await response.text(); // или `response.json()` если PHP возвращает JSON
-
-    alert(result);
-    // alert("Письмо успешно отправлено!");
+    if (response.ok) {
+      formData.value = { ...formDataDefault };
+    }
   } catch (error) {
     if (error instanceof Error) alert("Произошла ошибка: " + error.message);
   } finally {
