@@ -8,6 +8,7 @@
       id="email-input"
       name="email"
       class="subscription__form-input"
+      v-model="formData.email"
       type="email"
       placeholder="name@gmail.com"
     />
@@ -34,7 +35,7 @@ const submitForm = async () => {
       },
       body: JSON.stringify(formData.value),
     });
-
+    console.log(formData.value);
     // if (!response.ok) {
     //   throw new Error("Ошибка отправки формы");
     // }

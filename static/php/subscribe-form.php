@@ -3,50 +3,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Получаем JSON-данные из тела запроса
     $json = file_get_contents('php://input');
-
-    // Преобразуем JSON в ассоциативный массив
     $data = json_decode($json, true);
 
-    // Проверяем, что email передан и не пустой
-    if (empty($data['email'])) {
-        echo "Ошибка: email обязателен!";
-        exit;
-    }
+    if ($data) {
+        // Проверяем наличие всех обязательных полей
+        $requiredFields = ['email'];
 
-    // Очищаем email от возможных вредоносных данных
-    $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
-
-    // Проверяем корректность email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Ошибка: некорректный email!";
-        exit;
-    }
-
-    // Список email-адресов получателей
-    $recipients = [
-        "felipsesolaris@gmail.com"
-    ];
-
-    // Формируем сообщение
-    $subject = "Заявка на получение новостной рассылки с сайта avaks";
-    $body = "Email: $email";
-    $headers = "From: no-reply@avaks.com\r\nContent-Type: text/plain; charset=UTF-8";
-
-    // Флаг для отслеживания успешной отправки
-    $allSent = true;
-
-    // Отправка письма каждому получателю
-    foreach ($recipients as $to) {
-        if (!mail($to, $subject, $body, $headers)) {
-            $allSent = false;
+        foreach ($requiredFields as $field) {
+            if (empty($data[$field])) {
+                echo json_encode(["error" => "Ошибка: поле '$field' обязательно!"]);
+                exit;
+            }
         }
-    }
 
-    // Результат отправки
-    if ($allSent) {
-        echo "Письмо успешно отправлено";
+        // Очищаем и обрабатываем входные данные
+        $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
+
+        // Validate email after sanitization
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(["error" => "Некорректный email адрес"]);
+            exit;
+        }
+
+        // Список email-адресов, куда нужно отправить письмо
+        $recipients = ["felipsesolaris@gmail.com"];
+
+        // Формируем сообщение
+        $subject = "Заявка на получение новостной рассылки с сайта avaks";
+        $body = "Email: $email";
+        $headers = "From: no-reply@avaks.com\r\nContent-Type: text/plain; charset=UTF-8";
+
+        // Флаг успешной отправки
+        $allSent = true;
+
+        foreach ($recipients as $to) {
+            if (!mail($to, $subject, $body, $headers)) {
+                $allSent = false;
+            }
+        }
+
+        header('Content-Type: application/json; charset=utf-8');
+        if ($allSent) {
+            echo "Подписка успешно оформлена";
+        } else {
+            echo "Ошибка при оформлении подписки";
+        }
     } else {
-        echo "Ошибка при отправке письма";
+        echo "Некорректные данные";
     }
 }
 ?>

@@ -17,10 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Очищаем и обрабатываем входные данные
-        $fullname = htmlspecialchars(trim($data['fullname']));
-        $email = htmlspecialchars(trim($data['email']));
-        $phone = htmlspecialchars(trim($data['phone']));
-        $content = htmlspecialchars(trim($data['content']));
+        function sanitizeInput($input) {
+            $input = strip_tags($input);  // Remove HTML tags
+            $input = preg_replace('/[^\p{L}\p{N}\s\-\.\,\"\']/u', '', $input); // Allow letters, numbers, spaces, dots, commas, quotes
+            $input = trim($input);
+            return $input;
+        }
+
+        $fullname = sanitizeInput($data['fullname']);
+        $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
+        $phone = preg_replace('/[^\d\+\-\(\)\s]/', '', $data['phone']); // Only allow digits, +, -, (), spaces
+        $content = sanitizeInput($data['content']);
+
+        // Validate email after sanitization
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(["error" => "Некорректный email адрес"]);
+            exit;
+        }
 
         // Список email-адресов, куда нужно отправить письмо
         $recipients = ["felipsesolaris@gmail.com"];
@@ -39,14 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // Отправляем результат в формате JSON
+        header('Content-Type: application/json; charset=utf-8');
         if ($allSent) {
-            echo json_encode(["success" => "Письма успешно отправлены"]);
+            echo "Данные успешно отправлены";
         } else {
-            echo json_encode(["error" => "Ошибка при отправке писем"]);
+            echo "Ошибка при отправке данных";
         }
     } else {
-        echo json_encode(["error" => "Некорректные данные"]);
+        echo "Некорректные данные";
     }
 }
 ?>
