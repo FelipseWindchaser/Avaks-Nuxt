@@ -63,8 +63,8 @@
 }
 .footer__tag {
   color: var(--White, #fff);
-  font-feature-settings: "liga" off, "clig" off;
-  font-family: "DM Sans";
+  /* font-feature-settings: "liga" off, "clig" off; */
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
