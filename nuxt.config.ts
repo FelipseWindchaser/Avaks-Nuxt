@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { resolve } from "path";
-
-const projectRootDir = resolve(__dirname);
+import { defineNuxtConfig } from "nuxt/config";
+import { fileURLToPath } from 'node:url';
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
@@ -12,7 +11,7 @@ export default defineNuxtConfig({
       class: "main",
     },
     head: {
-      title: "Avaks — новые точки соприкосновения.",
+      title: "АВАКС — новые точки соприкосновения.",
       meta: [{}],
     },
   },
@@ -29,9 +28,9 @@ export default defineNuxtConfig({
   ],
 
   alias: {
-    "@src": resolve(projectRootDir, "src/"),
-    "@components": resolve(projectRootDir, "src/components"),
-    "@img": resolve(projectRootDir, "static/img"),
-    "@style": resolve(projectRootDir, "static/css"),
+    "@src": fileURLToPath(new URL('./src', import.meta.url)),
+    "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
+    "@img": fileURLToPath(new URL("./static/img", import.meta.url)),
+    "@style": fileURLToPath(new URL("./static/css", import.meta.url)),
   },
 });

@@ -13,7 +13,7 @@
     <div class="footer__wrapper">
       <div class="footer__text-container">
         <p class="footer__text">
-          © Компания AVAKS. Все права защищены. 2015-2025.
+          © Компания АВАКС. Все права защищены. 2015-2026.
         </p>
         <p class="footer__text">
           Сайт использует файлы «cookie» с целью повышения удобства пользования.

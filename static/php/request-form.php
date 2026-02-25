@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $recipients = ["felipsesolaris@gmail.com"];
 
         // Формируем сообщение
-        $subject = "Новая заявка на партнерство с сайта avaks";
+        $subject = "Новая заявка на партнерство с сайта avaks.org";
         $body = "ФИО: $fullname\nEmail: $email\nКомпания: $company\nГород: $city\nТелефон: $phone\nДополнительная информация: $content";
         $headers = "From: no-reply@avaks.com\r\nContent-Type: text/plain; charset=UTF-8";
 

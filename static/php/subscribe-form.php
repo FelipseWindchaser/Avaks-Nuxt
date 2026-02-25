@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $recipients = ["felipsesolaris@gmail.com"];
 
         // Формируем сообщение
-        $subject = "Заявка на получение новостной рассылки с сайта avaks";
+        $subject = "Заявка на получение новостной рассылки с сайта avaks.org";
         $body = "Email: $email";
         $headers = "From: no-reply@avaks.com\r\nContent-Type: text/plain; charset=UTF-8";
 
