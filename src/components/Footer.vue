@@ -4,7 +4,7 @@
       <a href="/" class="footer__logo">
         <img
           class="footer__image"
-          src="../../static/img/homepage/logo_footer.svg"
+          src="../../static/img/homepage/avaks-logo.webp"
           alt="логотип_компании"
         />
       </a>
@@ -48,6 +48,10 @@
   display: flex;
   flex-direction: column;
   gap: 64px;
+}
+.footer__image {
+  max-width: 220px;
+  height: 40px;
 }
 .footer__logo {
   cursor: pointer;

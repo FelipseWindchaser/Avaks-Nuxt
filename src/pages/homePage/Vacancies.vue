@@ -18,7 +18,7 @@
       </a>
     </div>
     <img
-      src="../../../static/img/homepage/vacancies/bg_1920.avif"
+      src="../../../static/img/homepage/vacancies/section_bg.png"
       class="vacancies__image"
     />
   </section>
@@ -77,6 +77,8 @@ defineProps<{}>();
   border-radius: 37px;
 }
 .vacancies__image {
+  max-width: 705px;
+  height: 395px;
   display: flex;
   justify-content: center;
   align-items: center;

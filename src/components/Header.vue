@@ -41,7 +41,7 @@
       <a href="/" class="header__logo">
         <img
           class="header__image"
-          src="../../static/img/homepage/logo.svg"
+          src="../../static/img/homepage/avaks-logo.webp"
           alt="логотип_компании"
         />
       </a>
@@ -72,6 +72,10 @@ const toggleNav = () => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   background-color: transparent;
   position: absolute;
+}
+.header__image {
+  max-width: 140px;
+  height: 26px;
 }
 .header__container {
   display: flex;
